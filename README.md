@@ -5,13 +5,13 @@ Voici le rendu de mon test technique.
 
 # Page du site: localhost:3000/products/load
 
-#L'ensemble des routes: 
+# L'ensemble des routes: 
 routes/index.js
 
-#Le middleware permettant de créer les produits et le serveur socket.io:
+# Le middleware permettant de créer les produits et le serveur socket.io:
 app.js(l.38)
 
-#Le code js et les écoutes socket.io: 
+# Le code js et les écoutes socket.io: 
 layout.ejs
 
 
