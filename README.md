@@ -30,3 +30,6 @@ Je n'ai pas fait de test de champs sur les formulaires mais je l'aurai fait avec
 # Socket.io
 J'ai rajouté un middleware qui permet à socket.io de pouvoir récupérer les connexions, ajouter à une "room" et j'utilise app.set() pour garder le serveur socket.io et envoyer des messages (contenant le produit concerné) à chaque action (ajout modification, suppression).
 Du côté client, on reste attentif à chaque message et on recharge la page pour une suppression, on crée et on envoie un formulaire pour l'ajout et la modification, ce qui met à jour de façon "temps réel" chaque page
+
+# Bugs:
+Il y a un seul bug que je n'ai pas réussi à corriger, c'est lors de la création, les pages devant se mettre à jour créent deux produits (un quand le message "adding" arrive et cette même route renvoie d'autre message "adding"). Ou c'est le fait d'avoir plusieurs socket connectées.
