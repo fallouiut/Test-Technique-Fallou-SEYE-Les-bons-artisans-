@@ -16,7 +16,7 @@ layout.ejs
 
 
 Je tiens tout d'abord souligner que ce site à été réalisé sans React js car je ne le maitrise pas encore cet outil et le temps restant ne me permettait pas de l'apprendre et de l'utiliser.
-Cependant, c'est une technologie qui m'intéresse beaucoup et j'ai nvie de l'apprendre à vos côtés et en amont de façon autodidacte avant le stage comme je l'ai fait auparavant avec nodejs.
+Cependant, c'est une technologie qui m'intéresse beaucoup, j'ai envie de l'apprendre à vos côtés et en amont de façon autodidacte avant le stage comme je l'ai fait auparavant avec nodejs.
 
 Néanmoins, afin de vous montrer mes compétences sur Nodejs, plus précisément express js ainsi que socket.io, j'ai remplacé nodejs par un moteur de template ejs.
 
