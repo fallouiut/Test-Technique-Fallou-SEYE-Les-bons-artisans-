@@ -1,0 +1,48 @@
+<% extend('./layout') %>
+
+
+<form method="post" action="#" class="center" style="width: 70%; padding: 10px">
+    <div class="form-group center">
+        <label for="exampleInputEmail1">Name</label>
+        <input name="product_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               <% if(locals.product) { %>value="<%= locals.product.name %>"
+                <% } %>
+        >
+    </div>
+    <div class="form-group center">
+        <label for="exampleInputEmail1">Type</label>
+        <input name="product_type" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               <% if(locals.product) { %>value="<%= locals.product.type %>"
+                <% } %>
+        >
+    </div>
+    <div class="form-group center">
+        <label for="exampleInputEmail1">Price</label>
+        <input name="product_price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               <% if(locals.product) { %>value="<%= locals.product.price %>"
+                <% } %>
+        >
+    </div>
+    <div class="form-group center">
+        <label for="exampleInputEmail1">Rating(Do we really have to change it ?)</label>
+        <input name="product_rating" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               <% if(locals.product) { %>value="<%= locals.product.rating %>"
+                <% } %>
+        >
+    </div>
+    <div class="form-group center">
+        <label for="exampleInputEmail1">Warranty years</label>
+        <input name="product_warranty" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               <% if(locals.product) { %>value="<%= locals.product.warranty_years %>"
+                <% } %>
+        >
+    </div>
+    <div class="form-group center">
+        <label for="exampleInputEmail1">Availability</label>
+        <br/>
+        <input type="radio" name="product_available" value="true" <% if (locals.product && locals.product.available == true) { %>checked="checked"<% } %>> Yes
+        <br/>
+        <input type="radio" name="product_available" value="false" <% if (locals.product && locals.product.available == false) { %>checked="checked"<% } %>>No
+    </div>
+    <button type="submit" style="margin: 20px" class="btn btn-primary">Submit</button>
+</form>

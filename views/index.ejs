@@ -1,0 +1,25 @@
+<% extend('./layout') %>
+
+<div id="btn-top-create">
+    <a href="/products/create" class="btn btn-primary">Add a product</a>
+
+</div>
+
+<% for (let product of locals.products) { %>
+    <div id="card-<%= product._id %>" class="card center" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><%= product.name %> </h5>
+            <p class="card-text"><%= product.price %> </p>
+            <p class="card-text"><%= product.type %> </p>
+            <p class="card-text">Warranty year: <%= product.warranty_years %> </p>
+            <p class="card-text">Rating: <%= product.rating %> </p>
+            <p class="card-text">Available: <%= product.available ? "yes": "no" %> </p>
+            <a href="/products/edit/<%= product._id %>" class="btn btn-primary">Edit</a>
+            <a href="/products/delete/<%= product._id %>" class="btn btn-secondary">Delete</a>
+        </div>
+    </div>
+<% } %>
+
+
+
+

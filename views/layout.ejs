@@ -1,0 +1,101 @@
+<! DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Test Technique - Fallou SEYE</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="/stylesheets/style.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="content">
+        <%- content %>
+    </div>
+  </div>
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    // TODO: code socket io
+    // TODO: code affichage popup
+    const socket = io.connect('http://localhost:3000', {
+      transports: ['websocket'],
+      upgrade: false
+    });
+
+    socket.on("connected", function(data) {
+        console.log("I joined room " + data.roomName);
+    });
+
+    socket.on("adding", function(data) {
+        console.log("Some one have added a new product");
+        sendForm(data.product, "/products/create");
+    });
+
+    socket.on("editing", function(data) {
+        console.log("Some one have edited an existing product");
+        sendForm(data.product, "/products/edit/" + data.product._id);
+    });
+
+    socket.on("deleting", function(data) {
+        console.log("deleting product n" + data.productId);
+        document.location.reload(true);
+    });
+
+    var sendForm = function(product, url) {
+        $('<form/>', {
+            method: "post",
+            action: url
+        })
+        .append($('<input>', {
+                'name': 'product_id',
+                'value': product._id,
+                'type': 'text'
+            })
+        )
+        .append($('<input>', {
+                'name': 'product_name',
+                'value': product.name,
+                'type': 'text'
+            })
+        )
+        .append($('<input>', {
+                'name': 'product_type',
+                'value': product.type,
+                'type': 'text'
+            })
+        )
+        .append($('<input>', {
+                'name': 'product_price',
+                'value': product.price,
+                'type': 'text'
+            })
+        )
+        .append($('<input>', {
+                'name': 'product_rating',
+                'value': product.rating,
+                'type': 'text'
+            })
+        )
+        .append($('<input>', {
+                'name': 'product_warranty',
+                'value': product.warranty_years,
+                'type': 'text'
+            })
+        )
+        .append($('<input>', {
+                 'name': 'product_availability',
+                 'value': product.available == true ? "true": "false",
+                 'radio': 'text'
+             })
+         )
+        .css("display", "none").appendTo("body").submit();
+    }
+
+</script>
+
+</html>
