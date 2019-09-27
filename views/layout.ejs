@@ -42,8 +42,8 @@
     });
 
     socket.on("deleting", function(data) {
-        console.log("deleting product n" + data.productId);
-        document.location.reload(true);
+        var url = "/products/delete/" + data.productId;
+        window.location.replace(url);
     });
 
     var sendForm = function(product, url) {
@@ -88,7 +88,7 @@
             })
         )
         .append($('<input>', {
-                 'name': 'product_availability',
+                 'name': 'product_available',
                  'value': product.available == true ? "true": "false",
                  'radio': 'text'
              })

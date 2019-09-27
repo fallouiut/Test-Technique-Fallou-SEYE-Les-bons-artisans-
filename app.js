@@ -39,9 +39,9 @@ var jsonProducts = require("./classes/Products");
 app.use(function (req, res, next) {
     // joindre la room pour être à l'écoute des messages
     // (../bin/www l.95), initialisation socket
-    // TODO: bien revoir si ca marche
     req.app.get("io").sockets.on("connection", function (socket) {
         socket.join("room-products");
+
         socket.emit("connected", {roomName: "products-room"});
         console.log("One socket joined 'room-products'");
     });
